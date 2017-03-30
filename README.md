@@ -27,22 +27,22 @@
 
 ``` swift
 //冒泡排序
-mutating  func bubbleSort() {
-for i in 0..<self.count {
-for j in 0..<self.count - 1 - i {
-if max(self[j], self[j+1]){
-(self[j],self[j+1]) = (self[j+1],self[j])
-}
-}
-}
-
-}
+    mutating  func bubbleSort() {
+        for i in 0..<self.count {
+            for j in 0..<self.count - 1 - i {
+                if max(self[j], self[j+1]){
+                    (self[j],self[j+1]) = (self[j+1],self[j])
+                }
+            }
+        }
+       
+    }
 
 ```
 
 算法原理图
-
-![maopao gif](/Users/shenweishun264/Desktop/sort_image/mao_pao_sort.gif)
+ 
+![maopao gif](http://img.blog.csdn.net/20170330162438270?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppZm91/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
 ###选择排序
 算法步骤
@@ -58,23 +58,23 @@ if max(self[j], self[j+1]){
 
 ``` swift
 //选择排序（选择最小元素）
-mutating func selectSort() {
-for i in 0..<self.count {
-var min = i
-for j in i+1..<self.count {
-if max(self[min], self[j]){
-min = j
-}
-}
-(self[min],self[i]) = (self[i],self[min])
-}
-
-}
+    mutating func selectSort() {
+        for i in 0..<self.count {
+            var min = i
+            for j in i+1..<self.count {
+                if max(self[min], self[j]){
+                    min = j
+                }
+            }
+            (self[min],self[i]) = (self[i],self[min])
+        }
+        
+    }
 
 ```
 算法原理图
-
-![xuan_ze gif](/Users/shenweishun264/Desktop/sort_image/xuan_ze_sort.gif)
+ 
+![xuan_ze gif](http://img.blog.csdn.net/20170330164137741?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppZm91/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
 ###快速排序
 算法步骤
@@ -91,35 +91,35 @@ min = j
 
 
 ``` swift
-//快速排序
-mutating func qkSort(left:Int,right:Int) {
-
-if left >= right {
-return
-}
-var i = left
-var j = right
-let temp = self[left]
-while i < j {
-while i<j && temp <= self[j] {
-j -= 1
-}
-self[i] = self[j]
-while i<j && temp >= self[i] {
-i += 1
-}
-self[j] = self[i]
-}
-self[i] = temp
-qkSort(left: left,right: i-1)
-qkSort(left: i+1, right: right)
-
-}
+ //快速排序
+    mutating func qkSort(left:Int,right:Int) {
+        
+        if left >= right {
+            return
+        }
+        var i = left
+        var j = right
+        let temp = self[left]
+        while i < j {
+            while i<j && temp <= self[j] {
+                j -= 1
+            }
+            self[i] = self[j]
+            while i<j && temp >= self[i] {
+                i += 1
+            }
+            self[j] = self[i]
+        }
+        self[i] = temp
+        qkSort(left: left,right: i-1)
+        qkSort(left: i+1, right: right)
+        
+    }
 
 ```
 算法原理图
-
-![kuai_shu gif](/Users/shenweishun264/Desktop/sort_image/kuai_shu_sort.gif)
+ 
+![kuai_shu gif](http://img.blog.csdn.net/20170330163202690?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppZm91/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 ###插入排序
 算法步骤
 
@@ -132,24 +132,25 @@ qkSort(left: i+1, right: right)
 3.i++并重复第二步直到i==n-1。排序完成。
 
 ``` swift
-//插入排序
-mutating func insertionSort() {
-for index in 1..<self.count {
-var newArrCount = index - 1
-let keyArr = self[index]
-while newArrCount >= 0 && self[newArrCount] > keyArr {
-self[newArrCount+1] = self[newArrCount]
-newArrCount -= 1
-}
-self[newArrCount+1] = keyArr
-}
-}
+  //插入排序
+    mutating func insertionSort() {
+        for index in 1..<self.count {
+            var newArrCount = index - 1
+            let keyArr = self[index]
+            while newArrCount >= 0 && self[newArrCount] > keyArr {
+                self[newArrCount+1] = self[newArrCount]
+                newArrCount -= 1
+            }
+            self[newArrCount+1] = keyArr
+        }
+    }
 
 ```
 
 算法原理图
+ 
+![cha_ru gif](http://img.blog.csdn.net/20170330162544475?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppZm91/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
-![cha_ru gif](/Users/shenweishun264/Desktop/sort_image/cha_ru_sort.gif)
 ###堆排序
 算法步骤
 
@@ -164,51 +165,51 @@ self[newArrCount+1] = keyArr
 直到无序区只有一个元素为止。
 
 ``` swift
-//堆排序
-mutating func heapSort() {
-//建立满足条件的堆
-func heapAdjust(index:Int,length:Int) {
-var temp = index
-if 2*index + 1 < length && !max(self[index], self[2*index+1]){
-temp = 2*index + 1
-
-}
-if 2*index + 2 < length && !max(self[temp] , self[2*index + 2]) {
-temp = 2*index + 2
-
-}
-if index != temp {
-(self[temp],self[index]) = (self[index],self[temp])
-heapAdjust(index: temp, length: length)
-
-}
-
-}
-
-//先建立个堆
-var length = self.count
-var index = length/2 - 1
-while index >= 0 {
-heapAdjust(index: index, length: length)
-index -= 1
-}
-
-length = self.count - 1
-var nextCount = length
-//调整堆
-for _ in 0..<self.count - 1 {
-(self[0],self[nextCount]) = (self[nextCount],self[0])
-heapAdjust(index: 0, length: nextCount)
-nextCount -= 1
-
-}
-
-}
+  //堆排序
+    mutating func heapSort() {
+        //建立满足条件的堆
+        func heapAdjust(index:Int,length:Int) {
+            var temp = index
+            if 2*index + 1 < length && !max(self[index], self[2*index+1]){
+                temp = 2*index + 1
+                
+            }
+            if 2*index + 2 < length && !max(self[temp] , self[2*index + 2]) {
+                temp = 2*index + 2
+                
+            }
+            if index != temp {
+                (self[temp],self[index]) = (self[index],self[temp])
+                heapAdjust(index: temp, length: length)
+               
+            }
+            
+        }
+        
+        //先建立个堆
+        var length = self.count
+        var index = length/2 - 1
+        while index >= 0 {
+            heapAdjust(index: index, length: length)
+            index -= 1
+        }
+        
+        length = self.count - 1
+        var nextCount = length
+        //调整堆
+        for _ in 0..<self.count - 1 {
+            (self[0],self[nextCount]) = (self[nextCount],self[0])
+            heapAdjust(index: 0, length: nextCount)
+            nextCount -= 1
+            
+        }
+        
+    }
 
 ```
 算法原理图
-
-![dui gif](/Users/shenweishun264/Desktop/sort_image/dui_sort.gif)
+ 
+![dui gif](http://img.blog.csdn.net/20170330163005611?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppZm91/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 ###归并排序
 算法步骤
 
@@ -220,81 +221,81 @@ nextCount -= 1
 
 
 ``` swift
-//归并排序
-mutating func mergeSort() {
-var temArr = self
-//合并数组
-func mergingArr(_ startIndex: Int,_ midIndex:Int,_ lastIndex:Int) {
-var i = startIndex
-var j = midIndex + 1
-let k = lastIndex
-let m = midIndex
-var n = 0
-while i <= m&&j <= k {
-
-if max(self[i], self[j]) {
-temArr[n] = self[j]
-j += 1
-n += 1
-}else {
-temArr[n] = self[i]
-i += 1
-n += 1
-}
-
-
-}
-
-while i <= m {
-temArr[n] = self[i]
-i += 1
-n += 1
-}
-
-while j <= k {
-temArr[n] = self[j]
-j += 1
-n += 1
-}
-
-for index in 0..<n {
-self[startIndex + index] = temArr[index]
-}
-
-}
-//分离数组
-func separateArr(_ startIndex: Int, _ endIndex: Int) {
-if startIndex < endIndex {
-let mid = (startIndex + endIndex)/2
-separateArr(startIndex, mid)
-separateArr(mid+1, endIndex)
-mergingArr(startIndex, mid, endIndex)
-}
-}
-
-separateArr(0, self.count-1)
-
-}
+ //归并排序
+    mutating func mergeSort() {
+        var temArr = self
+        //合并数组
+        func mergingArr(_ startIndex: Int,_ midIndex:Int,_ lastIndex:Int) {
+            var i = startIndex
+            var j = midIndex + 1
+            let k = lastIndex
+            let m = midIndex
+            var n = 0
+            while i <= m&&j <= k {
+                
+                if max(self[i], self[j]) {
+                    temArr[n] = self[j]
+                    j += 1
+                    n += 1
+                }else {
+                    temArr[n] = self[i]
+                    i += 1
+                    n += 1
+                }
+                
+                
+            }
+            
+            while i <= m {
+                temArr[n] = self[i]
+                i += 1
+                n += 1
+            }
+            
+            while j <= k {
+                temArr[n] = self[j]
+                j += 1
+                n += 1
+            }
+            
+            for index in 0..<n {
+                self[startIndex + index] = temArr[index]
+            }
+            
+        }
+        //分离数组
+        func separateArr(_ startIndex: Int, _ endIndex: Int) {
+            if startIndex < endIndex {
+                let mid = (startIndex + endIndex)/2
+                separateArr(startIndex, mid)
+                separateArr(mid+1, endIndex)
+                mergingArr(startIndex, mid, endIndex)
+            }
+        }
+        
+        separateArr(0, self.count-1)
+        
+    }
 
 ```
 
 算法原理图
-
-![gui_bing gif](/Users/shenweishun264/Desktop/sort_image/gui_bing_sort.gif)
+ 
+![gui_bing gif](http://img.blog.csdn.net/20170330163116892?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppZm91/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
 ###系统方法排序（sort）
-sort方法在与其他方法作比较时，无论是运行次数还是效率都是最优的，看下他的运行时间的效果图吧（由于看不到方法怎么实现的，所以无法演示原理）
-
-
-
-![sort gif](/Users/shenweishun264/Desktop/sort_image/sort.png)
+  sort方法在与其他方法作比较时，无论是运行次数还是效率都是最优的，看下他的运行时间的效果图吧（由于看不到方法怎么实现的，所以无法演示原理）
+  
+  
+  
+![sort png](http://img.blog.csdn.net/20170330163248359?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppZm91/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
 ###几种排序算法比较
 
 如下图所示，分别从时间复杂度、空间复杂度和稳定性来比较。
 
+![tubiao png](http://img.blog.csdn.net/20170330163625865?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppZm91/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
-![sort gif](/Users/shenweishun264/Desktop/sort_image/biaoge.png)
 
 
 
@@ -304,8 +305,12 @@ sort方法在与其他方法作比较时，无论是运行次数还是效率都�
 *  swift中在调用方法改变数组内元素值时，方法体中如果再嵌套一个方法改变这个数组值时则这个数组的地址会改变当整个方法结束时，才会把改变了地址的数组赋值给原来地址的数组。
 
 ###最后
-点击[完整代码地址]（https://github.com/tianjifou/SortSwift.git）
+点击观看[完整代码地址](https://github.com/tianjifou/SortSwift.git)
 
 （**转载请说明出处，编写代码不易如对您有用请点赞，谢谢支持！**）
+
+
+
+
 
 
