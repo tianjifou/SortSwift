@@ -1,6 +1,6 @@
 # SortSwift
 
-##swift中的排序算法总结
+## swift中的排序算法总结
 
 * 冒泡排序
 * 选择排序
@@ -12,7 +12,8 @@
 
 我们将这几种数组排序写进Array的分类里面方便调用
 
-###冒泡排序
+### 冒泡排序
+
 算法步骤
 
 1．比较相邻的元素。如果第一个比第二个大，就交换他们两个。
@@ -44,7 +45,8 @@
  
 ![maopao gif](http://img.blog.csdn.net/20170330162438270?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppZm91/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
-###选择排序
+### 选择排序
+
 算法步骤
 
 设数组为a[0…n-1]。
@@ -76,7 +78,8 @@
  
 ![xuan_ze gif](http://img.blog.csdn.net/20170330164137741?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppZm91/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
-###快速排序
+### 快速排序
+
 算法步骤
 
 1.设置两个变量i、j，排序开始的时候：i=0，j=N-1；
@@ -120,7 +123,9 @@
 算法原理图
  
 ![kuai_shu gif](http://img.blog.csdn.net/20170330163202690?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppZm91/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
-###插入排序
+
+### 插入排序
+
 算法步骤
 
 设数组为a[0…n-1]。
@@ -151,7 +156,8 @@
  
 ![cha_ru gif](http://img.blog.csdn.net/20170330162544475?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppZm91/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
-###堆排序
+### 堆排序
+
 算法步骤
 
 1.先将初始文件R[1..n]建成一个大根堆，此堆为初始的无序区；
@@ -210,7 +216,9 @@
 算法原理图
  
 ![dui gif](http://img.blog.csdn.net/20170330163005611?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppZm91/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
-###归并排序
+
+### 归并排序
+
 算法步骤
 
 1.比较a[i]和a[j]的大小，若a[i]≤a[j]，则将第一个有序表中的元素a[i]复制到r[k]中，并令i和k分别加上1；
@@ -283,14 +291,15 @@
  
 ![gui_bing gif](http://img.blog.csdn.net/20170330163116892?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppZm91/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
-###系统方法排序（sort）
+### 系统方法排序（sort）
+
   sort方法在与其他方法作比较时，无论是运行次数还是效率都是最优的，看下他的运行时间的效果图吧（由于看不到方法怎么实现的，所以无法演示原理）
   
   
   
 ![sort png](http://img.blog.csdn.net/20170330163248359?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbmppZm91/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
-###几种排序算法比较
+### 几种排序算法比较
 
 如下图所示，分别从时间复杂度、空间复杂度和稳定性来比较。
 
@@ -299,12 +308,13 @@
 
 
 
-###注意
+### 注意
 
 * swift中数组在改变数组内元素值时，如果是调用方法改变数组内元素，则无法监听
 *  swift中在调用方法改变数组内元素值时，方法体中如果再嵌套一个方法改变这个数组值时则这个数组的地址会改变当整个方法结束时，才会把改变了地址的数组赋值给原来地址的数组。
 
-###最后
+### 最后
+
 点击观看[完整代码地址](https://github.com/tianjifou/SortSwift.git)
 
 （**转载请说明出处，编写代码不易如对您有用请点赞，谢谢支持！**）
